@@ -1,0 +1,41 @@
+{
+  "name": "group",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alisher778/instagram-clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alisher778/instagram-clone/issues"
+  },
+  "homepage": "https://github.com/Alisher778/instagram-clone#readme",
+  "dependencies": {
+    "aws-sdk": "^2.7.15",
+    "body-parser": "^1.15.2",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "flash": "^1.1.0",
+    "moment": "^2.17.1",
+    "multer": "^1.2.0",
+    "multer-s3": "^2.5.0",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-sequelize": "^0.6.0",
+    "password-hash": "^1.2.2",
+    "pg": "^6.1.2",
+    "sequelize": "^3.27.0",
+    "sqlite3": "^3.1.8"
+  }
+}

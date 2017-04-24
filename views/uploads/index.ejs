@@ -1,0 +1,66 @@
+<% include ../template/header.ejs %>
+<% include ../template/nav.ejs %>
+
+
+</script>
+<div class="container">
+  <% upload.forEach(function(upload){%>
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="info">
+        <a href="/users/<%= upload.userId%>">
+          <img src="<%= upload.avatar %>" alt="" class="avatar">
+          <%= upload.userEmail%>
+        </a>
+          <span><%= upload.title%></span>
+        </div>
+        <span class="timeago"><%= moment(upload.createdAt).format("MMM Do YYYY")%></span>
+      </div>
+      
+      <% if(upload.mimetype === 'video/mp4'){ %> 
+          <div class="embed-responsive embed-responsive-16by9">
+            <video class="embed-responsive-item" src="<%= upload.image %>" controls></video>
+            <p class="description"><%= upload.description%></p>
+          </div>
+         <% } else { %>
+            <div class="panel-image">
+              <img src="<%= upload.image %>" class="img-fluid" alt="Responsive image" class="panel-image-preview" style="width: 100%; height: 100%"/>
+              <p class="description"><%= upload.description%></p>
+            </div>
+      <% } %>
+  
+      <section>
+        <div class="comments">
+          <ul id="<%=upload.id%>"></ul>
+        </div>
+        <div>
+          <form action="/comments/<%= upload.id%>/post" method="post" class="comment">
+            <div id="formPosition">
+              <img src="/images/like.png" alt="" data-user="<%= current_user %>" data-upload="<%= upload.id %>"class="like" /> 
+              <input type="text" data-id="<%= upload.id%>" name="comment" id="commentsForm" placeholder="Add a comment..." />
+            </div>
+          </form>
+        </div>
+      </section>
+    
+      <div class="panel-footer text-center">
+        <ul class="more">
+          <li>
+            <a href="<%=upload.image%>" title="Download"><span class="glyphicon glyphicon-download"></span></a>
+          </li>
+          <li title="Edit">
+            <a href="/uploads/<%= upload.id %>" class="moreLinks"><span class="glyphicon glyphicon-pencil"></span></a>
+          </li>
+          <li title="Delete">
+            <a href="/delete/<%= upload.id%>/<%= upload.fileName %>" class="moreLinks"><span class="glyphicon glyphicon-remove"></span></a>
+          </li>
+        </ul>
+        
+      <div id="<%=upload.id%>s"></div>
+    </div>
+  </div>
+</div>
+<%})%>
+</div>
+<% include ../template/footer.ejs%>

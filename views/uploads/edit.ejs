@@ -1,0 +1,27 @@
+<% include ../template/header.ejs %>
+<% include ../template/nav.ejs %>
+
+<div class="container">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <form action="/uploads/edit/<%= upload.id%>" method="post">
+        <div class="panel-body">
+
+          <div class="form-group">
+            <input class="form-control" name="title" type="text" value="<%= upload.title%>" />
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" name="description" type="text" rows="3"><%= upload.description%></textarea>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary form-control" name="submit" type="submit">Update</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <% include ../template/footer.ejs %>
